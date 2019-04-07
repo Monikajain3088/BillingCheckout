@@ -35,11 +35,18 @@ namespace AutomatedCheckout
         // Method to Add or Update item into card during checkout
         private void AddUpdateItem(int itemId, double qty)
         {
-            // if item exist in cart then update into cart list by adding quantity
-            if (cart.Any(y => y.ItemId == itemId))
-                cart.Where(w => w.ItemId == itemId).FirstOrDefault(i => { i.Quantity = i.Quantity + qty; return true; });
-            else // add new item in cart
-                cart.Add(new Cart() { ItemId = itemId, Quantity = qty });
+            try
+            {
+                // if item exist in cart then update into cart list by adding quantity
+                if (cart.Any(y => y.ItemId == itemId))
+                    cart.Where(w => w.ItemId == itemId).FirstOrDefault(i => { i.Quantity = i.Quantity + qty; return true; });
+                else // add new item in cart
+                    cart.Add(new Cart() { ItemId = itemId, Quantity = qty });
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
     }

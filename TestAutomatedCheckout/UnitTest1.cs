@@ -35,7 +35,7 @@ namespace TestAutomatedCheckout
             var Totl = obj.Sum();
         }
         [TestMethod]
-        public void TestMethodFourToothpaste()
+        public void TestMethodLargeAmt()
         {
             //two coffee
             obj.AddItem(7, 2.30);
@@ -46,7 +46,7 @@ namespace TestAutomatedCheckout
             obj.AddItem(1);
             obj.AddItem(1);
             obj.AddItem(1);
-            obj.AddItem(112);
+            obj.AddItem(1);
             var Totl = obj.Sum();
         }
         [TestMethod]
@@ -55,5 +55,12 @@ namespace TestAutomatedCheckout
             obj.AddItem(112);
             var Totl = obj.Sum();
         }
+        [TestMethod]
+        public void TestMethodSingleItem()
+        {
+            obj.AddItem(80000000);
+            var Totl = obj.Sum();
+        }
+
     }
 }
