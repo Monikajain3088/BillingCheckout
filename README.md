@@ -8,4 +8,4 @@ Class Named "Offer.cs" is applying offer discount on some product like coffee, t
 # Constant.cs
 Class Named "Constant.cs" is having values applying during offer calculation.
 # TestProject
-Testproject is created to test the "Checkout" class library projects 
+Testproject is created to test the "Checkout" class library project. This project is not actual test project implementation. It is just used to simulate the User interface like how the user will enter the items by its identification during the checkout and how the function written in class will be executed.
