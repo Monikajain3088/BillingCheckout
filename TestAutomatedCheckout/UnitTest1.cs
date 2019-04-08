@@ -6,60 +6,68 @@ namespace TestAutomatedCheckout
     [TestClass]
     public class UnitTest1
     {
-        Checkout obj = new Checkout();
+        private readonly Checkout _checkout;
+        public UnitTest1()
+        {
+            _checkout = new Checkout();
+        }
         [TestMethod]
         public void TestMethodToothpaste()
         {
             // 3 toothpaste
-            obj.AddItem(1);
-            obj.AddItem(1);
-            obj.AddItem(1);
+            _checkout.AddItem(1);
+            _checkout.AddItem(1);
+            _checkout.AddItem(1);
 
-         var Totl=   obj.Sum();
+         var Totl= _checkout.Sum();
+            Assert.AreEqual(49.88, Totl);
         }
         [TestMethod]
         public void TestMethodCoffee()
         {
             //two coffee
-            obj.AddItem(4);
-            obj.AddItem(4);
-            var Totl = obj.Sum();
+            _checkout.AddItem(4);
+            _checkout.AddItem(4);
+            var Totl = _checkout.Sum();
+            Assert.AreEqual(40, Totl);
         }
         [TestMethod]
         public void TestMethodOtherProduct()
         {
             //two coffee
-            obj.AddItem(3);
-            obj.AddItem(4);
-            obj.AddItem(5);
-            var Totl = obj.Sum();
+            _checkout.AddItem(3);
+            _checkout.AddItem(4);
+            _checkout.AddItem(5);
+            var Totl = _checkout.Sum();
+            Assert.AreEqual(67.39, Totl);
         }
         [TestMethod]
         public void TestMethodLargeAmt()
         {
-            //two coffee
-            obj.AddItem(7, 2.30);
-            obj.AddItem(2);
-            obj.AddItem(3);
-            obj.AddItem(4);
-            obj.AddItem(5);
-            obj.AddItem(1);
-            obj.AddItem(1);
-            obj.AddItem(1);
-            obj.AddItem(1);
-            var Totl = obj.Sum();
+            //four toothpaste and items total > 150
+            _checkout.AddItem(7, 2);
+            _checkout.AddItem(4);
+            _checkout.AddItem(5);
+            _checkout.AddItem(1);
+            _checkout.AddItem(1);
+            _checkout.AddItem(1);
+            _checkout.AddItem(1);
+            var Totl = _checkout.Sum();
+            Assert.AreEqual(300.26, Totl);
         }
         [TestMethod]
         public void TestMethodNotExistId()
         {
-            obj.AddItem(112);
-            var Totl = obj.Sum();
+            _checkout.AddItem(112);
+            var Totl = _checkout.Sum();
+            Assert.AreEqual(0, Totl); // as invalid itemid
         }
         [TestMethod]
         public void TestMethodSingleItem()
         {
-            obj.AddItem(80000000);
-            var Totl = obj.Sum();
+            _checkout.AddItem(80000000);
+            var Totl = _checkout.Sum();
+            Assert.AreEqual(0, Totl);
         }
 
     }
