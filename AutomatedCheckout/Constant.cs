@@ -11,14 +11,14 @@ namespace AutomatedCheckout
         public static int ToothPasteID = Products.items.FirstOrDefault(x => x.Value.Name == "Toothpaste").Key; // ToothPasteId - 1
         public static int AppelID = Products.items.FirstOrDefault(x => x.Value.Name == "Appels").Key; // Appel - 1 
         // Coffee offer
-        public static int offerCoffeeQty = 2;
-        public static double OfferCoffeePrice = 40;
+        public const int offerCoffeeQty = 2;
+        public const double OfferCoffeePrice = 40;
         //Toothpaste Offer
-        public static int offerTPQty = 3;
+        public const int offerTPQty = 3;
         public static double OfferTPPrice = Products.items[Constant.ToothPasteID].Price * 2;
         // Appel Offer
-        public static double OfferAppelPrice = 16.95;
-        public static double offerAmt = 150.00;
+        public const double OfferAppelPrice = 16.95;
+        public const double offerAmt = 150.00;
 
     }
 }
